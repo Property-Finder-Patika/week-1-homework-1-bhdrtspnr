@@ -29,23 +29,37 @@ func addSchool(name string, city string) { //adds a school to the slice schools
 }
 
 func addStudent() {
+	isSchoolExists := false
+	isStudentExists := false
 	fmt.Print("Enter the name of the school: ")
 	var schoolName string
 	fmt.Scanln(&schoolName)
-	for i := 0; i < len(schools); i++ {
+	for i := 0; i < len(schools); i++ { //iterate over schools to find the school with the given name
 		if schools[i].Name == schoolName {
-			fmt.Print("School exists!")
+			if testing {
+				fmt.Println("School found")
+			}
+			isSchoolExists = true
 			fmt.Print("Enter the name of the student to be added: ")
 			var studentName string
 			fmt.Scanln(&studentName)
-			for i := 0; i < len(persons); i++ {
-				if persons[i].name == studentName {
-					schools[i].Students = append(schools[i].Students, persons[i])
+			for j := 0; j < len(persons); j++ { //iterate over persons to find the person with the given name
+				if persons[j].name == studentName {
+					schools[i].Students = append(schools[i].Students, persons[j])
 					fmt.Print("Student added!")
+					isStudentExists = true
 				}
-
+			}
+			if !isStudentExists {
+				fmt.Print("Student does not exist!") //bruhhh
+				break
 			}
 		}
+		if !isSchoolExists {
+			fmt.Print("School does not exist!")
+			break
+		}
+
 	}
 }
 

@@ -28,6 +28,7 @@ func main() {
 }
 
 func mainMenu() {
+	fmt.Println("")
 	fmt.Println("Press 1 to enter the person menu")
 	fmt.Println("Press 2 to enter the school menu")
 	var menuInput int
@@ -85,21 +86,7 @@ func personMenu() { //same with school menu function
 
 	switch menuInput {
 	case 1:
-		{
-			fmt.Println(("Enter the name of the person"))
-			var name string
-			fmt.Scanln(&name)
-			fmt.Println(("Enter the age of the person"))
-			var age int
-			fmt.Scanln(&age)
-			fmt.Println(("Enter the height of the person"))
-			var height int
-			fmt.Scanln(&height)
-			fmt.Println(("Enter the weight of the person"))
-			var weight int
-			fmt.Scanln(&weight)
-			addPerson(name, age, height, weight)
-		}
+		addPersonMenu()
 	case 2:
 		listPeople()
 	case 3:
@@ -112,4 +99,21 @@ func personMenu() { //same with school menu function
 	default:
 		fmt.Println("Please use a valid entry")
 	}
+}
+
+func addPersonMenu() {
+	fmt.Println(("Enter the name of the person"))
+	var name string
+	fmt.Scanln(&name)
+	fmt.Println(("Enter the age of the person"))
+	var age int
+	fmt.Scanln(&age)
+	fmt.Println(("Enter the height of the person"))
+	var height int
+	fmt.Scanln(&height)
+	fmt.Println(("Enter the weight of the person"))
+	var weight int
+	fmt.Scanln(&weight)
+	addPerson(name, age, height, weight)
+
 }
