@@ -29,37 +29,32 @@ func addSchool(name string, city string) { //adds a school to the slice schools
 }
 
 func addStudent() {
-	isSchoolExists := false
-	isStudentExists := false
 	fmt.Print("Enter the name of the school: ")
 	var schoolName string
 	fmt.Scanln(&schoolName)
+	if !isSchoolExists(schoolName) {
+		fmt.Println("School not found")
+		return
+	}
 	for i := 0; i < len(schools); i++ { //iterate over schools to find the school with the given name
 		if schools[i].Name == schoolName {
 			if testing {
 				fmt.Println("School found")
 			}
-			isSchoolExists = true
 			fmt.Print("Enter the name of the student to be added: ")
 			var studentName string
 			fmt.Scanln(&studentName)
+			if !isPersonExists(studentName) {
+				fmt.Println("Student does not exists")
+				return
+			}
 			for j := 0; j < len(persons); j++ { //iterate over persons to find the person with the given name
 				if persons[j].name == studentName {
 					schools[i].Students = append(schools[i].Students, persons[j])
 					fmt.Print("Student added!")
-					isStudentExists = true
 				}
 			}
-			if !isStudentExists {
-				fmt.Print("Student does not exist!") //bruhhh
-				break
-			}
 		}
-		if !isSchoolExists {
-			fmt.Print("School does not exist!")
-			break
-		}
-
 	}
 }
 
@@ -88,4 +83,22 @@ func deleteSchool() {
 			schools = append(schools[:i], schools[i+1:]...) //same deletion used in the person struct
 		}
 	}
+}
+
+func isSchoolExists(name string) bool {
+	for i := 0; i < len(schools); i++ {
+		if schools[i].Name == name {
+			return true
+		}
+	}
+	return false
+}
+
+func isPersonExists(name string) bool {
+	for i := 0; i < len(persons); i++ {
+		if persons[i].name == name {
+			return true
+		}
+	}
+	return false
 }
