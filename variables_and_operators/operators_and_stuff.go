@@ -1,5 +1,7 @@
 package main
 
+//operators, increment, decrement, bitwise shifting, basic pointers
+
 import (
 	"fmt"
 )
@@ -59,7 +61,7 @@ func main() {
 
 	// pointer declaration
 	b := 20
-	var num1 *int = &b
+	var num1 *int = &b //num1 pretty much points to b's location on the memory
 
 	// gives the memory address
 	fmt.Println(num1)

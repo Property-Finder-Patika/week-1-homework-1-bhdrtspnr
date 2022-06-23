@@ -1,0 +1,33 @@
+
+##you can test your requests with rest client in here
+##simply add your request here and "send request" button will appear
+## use "##" to add another request.
+##follow the steps below to create a new magazine then delete it
+
+###
+GET http://localhost:10000/
+
+###
+GET http://localhost:10000/all
+
+
+###
+POST http://localhost:10000/magazine
+
+{
+    "Id": "3", 
+    "Title": "added_title", 
+    "desc": "added_description", 
+    "content": "added_magazine_content" 
+}
+
+###
+GET http://localhost:10000/all
+
+###
+GET http://localhost:10000/magazine/3
+
+###
+DELETE http://localhost:10000/magazine/3
+
+

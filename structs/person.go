@@ -50,3 +50,12 @@ func deletePerson() {
 		}
 	}
 }
+
+func isPersonExists(name string) bool {
+	for i := 0; i < len(persons); i++ {
+		if persons[i].name == name {
+			return true
+		}
+	}
+	return false
+}
