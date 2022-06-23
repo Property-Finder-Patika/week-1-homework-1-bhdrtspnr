@@ -7,7 +7,7 @@ import (
 
 var persons []Person //person slice to store the created persons (pretty much person db)
 
-type Person struct { //struct for persons, looks pretty familiar to java objects
+type Person struct { //struct for persons, looks pretty familiar to java objectss
 	name   string
 	age    int
 	height int
@@ -23,7 +23,7 @@ func addPerson(name string, age int, height int, weight int) { //adds a person t
 	persons = append(persons, newPerson)
 }
 
-func listPeople() { //iterate over list to print all people structs
+func listPeople() { //iterate over list to print all people structss
 	for i := 0; i < len(persons); i++ {
 		fmt.Println(persons[i].toString())
 	}

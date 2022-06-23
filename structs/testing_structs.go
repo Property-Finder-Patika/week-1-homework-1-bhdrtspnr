@@ -1,7 +1,7 @@
 package main
 
 //use go mod init on terminal before using go run . else it won't work
-//practicing structs, loops, slices, functions, and text formatting
+//practicing structs, loops, slices, functions, and text formattingg
 
 import (
 	"fmt"
